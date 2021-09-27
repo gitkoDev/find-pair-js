@@ -1,0 +1,85 @@
+// Variables
+
+@use "fonts";
+@use "colors";
+
+$grid-size: 10rem;
+$grid-gap: 0.2rem;
+
+// Reset styles
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+// General styling
+body {
+    font-family: fonts.$ff-primary;
+    width: 100vw;
+    height: 100vh;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("../img/app__bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+// Main styling
+
+.app {
+    &__inner {
+        background: #eee;
+        padding: 2rem;
+        border-radius: 16px;
+        box-shadow: 3px 6px 4px 1px #555;
+    }
+    &__title {
+        font-size: 2.5rem;
+        color: colors.$clr-primary;
+        margin-bottom: 1rem;
+        text-align: center;
+        font-weight: 800;
+        text-transform: capitalize;
+    }
+}
+
+.grid {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: $grid-size $grid-size $grid-size;
+    gap: $grid-gap;
+
+    &__item + &__item {
+        margin-top: $grid-gap;
+    }
+    &__item {
+        width: $grid-size;
+        height: $grid-size;
+        border: 3px solid #555;
+        border-radius: 6px;
+    }
+    &__img {
+        display: block;
+        transition: opacity 0.3s ease-out;
+        opacity: 0;
+        &-show {
+            opacity: 1;
+        }
+    }
+
+
+}
+
