@@ -5,10 +5,13 @@ const imgArray = [
 '<img id="grid__img" class="grid__img" src="img/1.png">', 
 '<img id="grid__img" class="grid__img" src="img/2.png">', 
 '<img id="grid__img" class="grid__img" src="img/3.png">', 
-'<img id="grid__img" class="grid__img" src="img/4.png">'
+'<img id="grid__img" class="grid__img" src="img/4.png">',
+'<img id="grid__img" class="grid__img" src="img/5.png">',
+'<img id="grid__img" class="grid__img" src="img/6.png">',
+'<img id="grid__img" class="grid__img" src="img/7.png">'
 ];
 
-
+const modal = document.querySelector("#modal");
 
 
 /*           When the game loads, generate the tiles and put randomized pictures in them                     */
@@ -16,6 +19,7 @@ let columns = 3;
 let rows = 2;
 // Amount of items we need to know to generate random picking of picture pairs
 let items = columns * rows;
+let openedItems = 0;
 
 function getRandom() {
     // Array to push links to random pictures
@@ -30,13 +34,16 @@ function getRandom() {
     }
     return [...randomArr, ...randomArr];
 }
-newArr = getRandom();
 
 
-// Create a grid with random images in random order when the page loads
-window.onload = (() => {
+ // Create a grid with random images in random order when the page loads
+window.onload = startGame;
 
-
+function startGame() {
+    openedItems = 0;
+    modal.style.display = "none";
+    grid.innerHTML = "";
+    newArr = getRandom();
     // Create grid items vertically (Create every column)
     for(let i = 0; i < columns; i++) {
         let column = document.createElement("div");
@@ -55,7 +62,11 @@ window.onload = (() => {
         // Append the items to the grid container
         grid.append(column);
     }
-});
+}
+
+
+
+
 
 
 
@@ -77,11 +88,14 @@ function showImgs(e) {
             e.target.classList.add("grid__img-show");
             targets.push(e.target);
             clickedImgs.push(e.target.src);
-        } 
+            console.log(e.target);
+        } else {
+            console.log("already clicked");
+        }
     } 
      // Check if there's a match using the function checkImgs
     if(clickedImgs.length === 2) {
-        setTimeout(checkImgs, 700);
+        setTimeout(checkImgs, 500);
     }
 }   
 
@@ -92,10 +106,29 @@ function checkImgs() {
             for(let i = 0; i < targets.length; i++) {
                 targets[i].classList.remove("grid__img-show");
             }
-        }
+    } else {
+        
+        // If there's a match, increase the counter of the opened items, so that when all items are opened, we can congratulate the user
+        openedItems += 2;
+    }
+    // When all items are opened, do the following
+    if(openedItems === items) {
+        userWins();
+    }
         targets = [];
         clickedImgs = [];
+        console.log(openedItems);
 }
 
-console.log(grid.children);
-// Generate a number or unique digits, duplicate them, insert them in the innerHTML of every image (e.g. src= 1(HERE WE INSERT THE RANDOMIZED NUMBER).png)
+
+// Function to congratulate the user when all items have been opened
+function userWins() {
+    modal.style.display = "block";
+    
+}
+
+
+document.querySelector("#modal__again-btn").addEventListener("click", startGame);
+document.querySelector("#modal__close-btn").addEventListener("click", () => {
+    modal.style.display = "none";
+});
