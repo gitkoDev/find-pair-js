@@ -27,6 +27,8 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    width: 100vw;
+    height: 100vh;
 }
 
 img {
@@ -126,7 +128,7 @@ img {
 .modal-start {
     display: none;
     @include mixins.modal();
-    width: 50%;
+    width: 900px;
 
     &__inner {
         padding: 2rem;
@@ -143,7 +145,8 @@ img {
     &__close-btn {
         @include mixins.close-btn;
     }
-    &__top {
+    &__top,
+    &__middle {
         margin-top: 3rem;
         display: flex;
         justify-content: space-evenly;
@@ -157,6 +160,9 @@ img {
         font-size: 2rem;
         color: #333;
         font-weight: 600;
+    }
+    &__middle {
+        margin-bottom: 1rem;
     }
     .start-btn {
         display: flex;
@@ -175,7 +181,7 @@ img {
     }
 }
 
-.size {
+.choice {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -183,6 +189,7 @@ img {
     border-radius: 4px;
     padding: 0.5rem 1rem;
     cursor: pointer;
+    width: 30%;
     background-color: darken(colors.$clr-choose-btn, 20%);
     transition: 0.3s transform ease-in-out;
 
@@ -277,4 +284,48 @@ input[type="radio"] {
     }
 }
 
-// Finishing modal styling
+// Media queries
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 14px;
+    }
+    .modal-start {
+        width: 700px;
+        height: 50%;
+    }
+}
+
+@media (max-width: 720px) {
+    .modal-start {
+        width: 600px;
+    }
+}
+
+@media (max-width: 610px) {
+    html {
+        font-size: 12px;
+    }
+    .modal-start {
+        width: 450px;
+    }
+
+    .choice img {
+        display: none;
+    }
+    .grid__item {
+        width: 8rem;
+    }
+}
+
+@media (max-width: 420px) {
+    html {
+        font-size: 10.5px;
+    }
+    .modal-start {
+        width: 350px;
+    }
+    .grid__item {
+        width: 7.5rem;
+    }
+}

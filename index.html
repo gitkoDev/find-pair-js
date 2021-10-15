@@ -18,9 +18,6 @@
                 <li class="nav__item" id="nav__again">
                     <a href="#">Play Again</a>
                 </li>
-                <li class="nav__item" id="nav__choose">
-                    <a href="#">Choose Topic</a>
-                </li>
             </ul>
         </nav>
 
@@ -91,33 +88,70 @@
                             name="size-select"
                             id="size--large"
                         />
-                        <label for="size--small" class="size size--small">
+                        <label for="size--small" class="choice size--small">
                             <span>Small</span>
                             <img
-                                class="size-img"
+                                class="choice-img"
                                 src="./img/size-small.svg"
                                 alt=""
                             />
                         </label>
-                        <label for="size--medium" class="size size--medium">
+                        <label for="size--medium" class="choice size--medium">
                             <span>Medium</span>
                             <img
-                                class="size-img"
+                                class="choice-img"
                                 src="./img/size-medium.svg"
                                 alt=""
                             />
                         </label>
-                        <label for="size--large" class="size size--large">
+                        <label for="size--large" class="choice size--large">
                             <span>Large</span>
                             <img
-                                class="size-img"
+                                class="choice-img"
                                 src="./img/size-large.svg"
                                 alt=""
                             />
                         </label>
                     </div>
 
-                    <div class="modal-start__middle"></div>
+                    <div class="modal-start__middle">
+                        <input
+                            type="radio"
+                            name="topic-select"
+                            id="topic--numbers"
+                        />
+                        <input type="radio" name="topic-select" id="topic--jobs"
+                        / checked>
+                        <input
+                            type="radio"
+                            name="topic-select"
+                            id="topic--animals"
+                        />
+                        <label for="topic--numbers" class="choice size--small">
+                            <span>Small</span>
+                            <img
+                                class="choice-img"
+                                src="./img/size-small.svg"
+                                alt=""
+                            />
+                        </label>
+                        <label for="size--medium" class="choice size--medium">
+                            <span>Medium</span>
+                            <img
+                                class="choice-img"
+                                src="./img/size-medium.svg"
+                                alt=""
+                            />
+                        </label>
+                        <label for="size--large" class="choice size--large">
+                            <span>Large</span>
+                            <img
+                                class="choice-img"
+                                src="./img/size-large.svg"
+                                alt=""
+                            />
+                        </label>
+                    </div>
 
                     <div class="modal-start__bottom">
                         <button class="start-btn" id="start-btn">Start</button>
