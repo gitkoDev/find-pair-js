@@ -1,42 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Find the Pair Game</title>
-    <link rel="stylesheet" href="./style/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;500;800&display=swap" rel="stylesheet">
-    <script defer src="./script.js"></script>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Find the Pair Game</title>
+        <link rel="stylesheet" href="./style/style.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;500;800&display=swap"
+            rel="stylesheet"
+        />
+        <script defer src="./script.js"></script>
+    </head>
+    <body>
+        <nav class="app__nav">
+            <ul class="nav__item-list">
+                <li class="nav__item" id="nav__again">
+                    <a href="#">Play Again</a>
+                </li>
+                <li class="nav__item" id="nav__choose">
+                    <a href="#">Choose Topic</a>
+                </li>
+            </ul>
+        </nav>
 
-    <main>
-        <div class="app__inner" id="app__inner">
-            <h1 class="app__title">Find the pair</h1>
-            
-            <div class="grid" id="grid">
-                
-            </div> 
-        </div>
-    </main>
+        <div class="app__flex">
+            <main>
+                <div class="app__inner" id="app__inner">
+                    <h1 class="app__title">Find the pair</h1>
 
-    <!-- Modal appearing when a game is finished -->
-    <div class="modal" id="modal">
-        <div class="modal__inner">
-            <button class="modal__close-btn" id="modal__close-btn">&times</button>
-            <div class="modal__top">
-               <img class="modal__img" src="./img/congratulations__icon.png" alt="congratulations">
-                <h2 class="modal__title">You win!</h2> 
+                    <div class="grid" id="grid"></div>
+                </div>
+            </main>
 
+            <!-- Modal appearing when a game is finished -->
+            <div class="modal-finish" id="modal-start">
+                <div class="modal-finish__inner">
+                    <button
+                        class="modal-finish__close-btn"
+                        id="modal__close-btn"
+                    >
+                        &times
+                    </button>
+                    <div class="modal-finish__top">
+                        <img
+                            class="modal-finish__img"
+                            src="./img/congratulations__icon.png"
+                            alt="congratulations"
+                        />
+                        <h2 class="modal-finish__title">You win!</h2>
+                    </div>
+                    <div class="modal-finish__bottom">
+                        <button
+                            class="modal-finish__again-btn modal-finish__btn"
+                            id="modal__again-btn"
+                        >
+                            Play again
+                        </button>
+                        <button
+                            class="modal-finish__choose-btn modal-finish__btn"
+                            id="modal__close-btn"
+                        >
+                            Change topic
+                        </button>
+                    </div>
+                </div>
             </div>
-            <div class="modal__bottom">
-                <button class="modal__again-btn modal__btn" id="modal__again-btn">Play again</button>
-                <button class="modal__choose-btn modal__btn" id="modal__close-btn">Change topic</button>
+
+            <!-- Modal appearing before the game starts to choose the size of the grid and the topic -->
+
+            <div class="modal-start" id="modal-start">
+                <div class="modal-start__inner">
+                    <button
+                        class="modal-start__close-btn"
+                        id="modal-start__close-btn"
+                    >
+                        &times
+                    </button>
+
+                    <div class="modal-start__top">
+                        <input
+                            type="radio"
+                            name="size-select"
+                            id="size--small"
+                        />
+                        <input type="radio" name="size-select" id="size--medium"
+                        / checked>
+                        <input
+                            type="radio"
+                            name="size-select"
+                            id="size--large"
+                        />
+                        <label for="size--small" class="size size--small">
+                            <span>Small</span>
+                            <img
+                                class="size-img"
+                                src="./img/size-small.svg"
+                                alt=""
+                            />
+                        </label>
+                        <label for="size--medium" class="size size--medium">
+                            <span>Medium</span>
+                            <img
+                                class="size-img"
+                                src="./img/size-medium.svg"
+                                alt=""
+                            />
+                        </label>
+                        <label for="size--large" class="size size--large">
+                            <span>Large</span>
+                            <img
+                                class="size-img"
+                                src="./img/size-large.svg"
+                                alt=""
+                            />
+                        </label>
+                    </div>
+
+                    <div class="modal-start__middle"></div>
+
+                    <div class="modal-start__bottom">
+                        <button class="start-btn" id="start-btn">Start</button>
+                    </div>
+                </div>
             </div>
-            
         </div>
-        
-    </div>
-</body>
+    </body>
 </html>

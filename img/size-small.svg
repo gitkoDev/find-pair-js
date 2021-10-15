@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="188" height="120" viewBox="0 0 188 120">
+  <g id="Group_1" data-name="Group 1" transform="translate(-300 -224)">
+    <g id="Rectangle_5" data-name="Rectangle 5" transform="translate(300 224)" fill="#f85555" stroke="#666" stroke-width="2">
+      <rect width="58" height="57" rx="5" stroke="none"/>
+      <rect x="1" y="1" width="56" height="55" rx="4" fill="none"/>
+    </g>
+    <g id="Rectangle_9" data-name="Rectangle 9" transform="translate(430 224)" fill="#f85555" stroke="#666" stroke-width="2">
+      <rect width="58" height="57" rx="5" stroke="none"/>
+      <rect x="1" y="1" width="56" height="55" rx="4" fill="none"/>
+    </g>
+    <g id="Rectangle_2" data-name="Rectangle 2" transform="translate(365 287)" fill="#efa442" stroke="#666" stroke-width="2">
+      <rect width="58" height="57" rx="5" stroke="none"/>
+      <rect x="1" y="1" width="56" height="55" rx="4" fill="none"/>
+    </g>
+    <g id="Rectangle_4" data-name="Rectangle 4" transform="translate(300 287)" fill="#efa442" stroke="#666" stroke-width="2">
+      <rect width="58" height="57" rx="5" stroke="none"/>
+      <rect x="1" y="1" width="56" height="55" rx="4" fill="none"/>
+    </g>
+    <g id="Rectangle_7" data-name="Rectangle 7" transform="translate(430 287)" fill="#8171e5" stroke="#666" stroke-width="2">
+      <rect width="58" height="57" rx="5" stroke="none"/>
+      <rect x="1" y="1" width="56" height="55" rx="4" fill="none"/>
+    </g>
+    <g id="Path_1" data-name="Path 1" transform="translate(365 224)" fill="#8171e5">
+      <path d="M 53 56 L 5 56 C 2.794389963150024 56 1 54.20560836791992 1 52 L 1 5 C 1 2.794389963150024 2.794389963150024 1 5 1 L 53 1 C 55.20560836791992 1 57 2.794389963150024 57 5 L 57 52 C 57 54.20560836791992 55.20560836791992 56 53 56 Z" stroke="none"/>
+      <path d="M 5 2 C 3.345790863037109 2 2 3.345790863037109 2 5 L 2 52 C 2 53.65420913696289 3.345790863037109 55 5 55 L 53 55 C 54.65420913696289 55 56 53.65420913696289 56 52 L 56 5 C 56 3.345790863037109 54.65420913696289 2 53 2 L 5 2 M 5 0 L 53 0 C 55.76142120361328 0 58 2.238571166992188 58 5 L 58 52 C 58 54.76142120361328 55.76142120361328 57 53 57 L 5 57 C 2.238571166992188 57 0 54.76142120361328 0 52 L 0 5 C 0 2.238571166992188 2.238571166992188 0 5 0 Z" stroke="none" fill="#666"/>
+    </g>
+  </g>
+</svg>

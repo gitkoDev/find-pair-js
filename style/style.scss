@@ -1,7 +1,7 @@
 // Variables
-
-@use "fonts";
 @use "colors";
+@use "mixins";
+@use "fonts";
 
 $grid-size: 10rem;
 $grid-gap: 0.2rem;
@@ -22,12 +22,6 @@ button {
 // General styling
 body {
     font-family: fonts.$ff-primary;
-    width: 100vw;
-    height: 100vh;
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
     background-image: url("../img/app__bg.jpg");
     background-size: cover;
@@ -49,8 +43,6 @@ img {
         padding: 2rem;
         border-radius: 16px;
         box-shadow: 3px 3px 6px 1px #666;
-       
-       
     }
     &__title {
         font-size: 2.5rem;
@@ -60,6 +52,45 @@ img {
         font-weight: 800;
         text-transform: capitalize;
     }
+    &__flex {
+        width: 100vw;
+        height: 85vh;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 1rem 0;
+    }
+}
+
+.nav {
+    &__item-list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__item {
+        list-style: none;
+        font-size: 2.5rem;
+        font-weight: 500;
+        & a {
+            text-decoration: none;
+            color: #333;
+            transition: 0.3s color ease-in-out;
+            &:hover {
+                color: darken(colors.$clr-choose-btn, 30%);
+            }
+        }
+    }
+    &__item + &__item {
+        margin-left: 4rem;
+    }
 }
 
 .grid {
@@ -67,8 +98,6 @@ img {
     justify-content: center;
     grid-template-columns: $grid-size $grid-size $grid-size;
     gap: $grid-gap;
-    
-
 
     &__item + &__item {
         margin-top: $grid-gap;
@@ -88,114 +117,164 @@ img {
             opacity: 1;
         }
     }
-
-
 }
 
 // Main styling end
 
+// Starting modal styling
 
+.modal-start {
+    display: none;
+    @include mixins.modal();
+    width: 50%;
 
-// Modal styling start
-    .modal {
-        width: 40%;
-        height: 60%;
-        position: fixed;
+    &__inner {
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    &__close-btn {
+        @include mixins.close-btn;
+    }
+    &__top {
+        margin-top: 3rem;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        background: darken(colors.$clr-choose-btn, 30%);
+        box-shadow: 1px 1px 35px 1px #bbb;
         border-radius: 6px;
-        background: colors.$clr-background;
-        box-shadow: 3px 3px 6px 1px #666;
+        padding: 2rem;
 
-        display: none;
-
-        &__inner {
-            padding: 2rem;
-            position: relative;
-            overflow: hidden;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-
-            width: 100%;
-            height: 100%;
-        }
-        &__top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        &__close-btn {
-            width: 60px;
-            height: 60px;
-
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #333;
-            background: darken(colors.$clr-background, 10%);
-
-            display: block;
-            margin-left: auto;
-            border: 3px solid #666;
-            padding: 10px;
-            border-radius: 50%;
-
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            transition: 0.3s transform ease-in-out;
-
-            &:hover {
-                transform: scale(1.2);
-            }
-        }
-        &__img {
-            display: inline-block;
-            width: 10rem;
-            height: 10rem;
-        }
-        &__title {
-            font-size: 5rem;
-            color: #444;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        &__bottom {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        &__btn {
-            display: inline-block;
-
-            padding: 1.5rem 2rem;
-            font-family: fonts.$ff-primary;
-            font-size: 1.5rem;
-            font-weight: 500;
-            border: none;
-
-            transition: 0.3s background ease-in-out;
-        }
-        &__btn + &__btn {
-            margin-left: 1rem;
-        }
-
-        &__again-btn {
-            background: colors.$clr-again-btn;
-
-            &:hover {
-                background: darken(colors.$clr-again-btn, 10%);
-            }
-        }
-        &__choose-btn {
-            background: colors.$clr-choose-btn;
-            &:hover {
-                background: darken(colors.$clr-choose-btn, 20%);
-            }
+        font-family: fonts.$ff-primary;
+        font-size: 2rem;
+        color: #333;
+        font-weight: 600;
+    }
+    .start-btn {
+        display: flex;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        font-family: fonts.$ff-primary;
+        font-size: 2rem;
+        text-transform: uppercase;
+        font-weight: 500;
+        border: none;
+        background-color: colors.$clr-start-btn;
+        transition: 0.3s background ease-in-out;
+        &:hover {
+            background-color: darken(colors.$clr-start-btn, 15%);
         }
     }
+}
 
-// Modal styling end
+.size {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #666;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    background-color: darken(colors.$clr-choose-btn, 20%);
+    transition: 0.3s transform ease-in-out;
 
+    & img {
+        display: inline-block;
+        width: 2rem;
+        margin-left: 1rem;
+    }
+}
 
+#size--small:checked ~ .size--small,
+#size--medium:checked ~ .size--medium,
+#size--large:checked ~ .size--large {
+    background-color: colors.$clr-choose-btn;
+    transform: scale(1.1);
+}
 
+input[type="radio"] {
+    display: none;
+}
+
+// Finishing modal styling
+.modal-finish {
+    @include mixins.modal();
+
+    display: none;
+
+    &__inner {
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        width: 100%;
+        height: 100%;
+    }
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__close-btn {
+        @include mixins.close-btn;
+    }
+    &__img {
+        display: inline-block;
+        width: 10rem;
+        height: 10rem;
+    }
+    &__title {
+        font-size: 5rem;
+        color: #444;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    &__bottom {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__btn {
+        display: inline-block;
+
+        padding: 1.5rem 2rem;
+        font-family: fonts.$ff-primary;
+        font-size: 1.5rem;
+        font-weight: 500;
+        border: none;
+
+        transition: 0.3s background ease-in-out;
+    }
+    &__btn + &__btn {
+        margin-left: 1rem;
+    }
+
+    &__again-btn {
+        background: colors.$clr-again-btn;
+
+        &:hover {
+            background: darken(colors.$clr-again-btn, 10%);
+        }
+    }
+    &__choose-btn {
+        background: colors.$clr-choose-btn;
+        &:hover {
+            background: darken(colors.$clr-choose-btn, 20%);
+        }
+    }
+}
+
+// Finishing modal styling
