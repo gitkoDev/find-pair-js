@@ -1,7 +1,6 @@
 @use "colors";
 
 @mixin modal {
-    height: 60%;
     position: fixed;
     border-radius: 6px;
     background: colors.$clr-background;

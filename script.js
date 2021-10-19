@@ -1,59 +1,85 @@
 const grid = document.querySelector("#grid");
 const navAgain = document.querySelector("#nav__again").addEventListener("click", openStart);
-const navChoose = document.querySelector("#nav__choose");
-
-
 
 // Array with innerHTML of the images to insert while creating new elements
-const imgArray = [
-    '<img id="grid__img" class="grid__img" src="img/1.png">',
-    '<img id="grid__img" class="grid__img" src="img/2.png">',
-    '<img id="grid__img" class="grid__img" src="img/3.png">',
-    '<img id="grid__img" class="grid__img" src="img/4.png">',
-    '<img id="grid__img" class="grid__img" src="img/5.png">',
-    '<img id="grid__img" class="grid__img" src="img/6.png">',
-    '<img id="grid__img" class="grid__img" src="img/7.png">'
+const numbersArray = [
+    '<img id="grid__img" class="grid__img" src="img/numbers/1.png">',
+    '<img id="grid__img" class="grid__img" src="img/numbers/2.png">',
+    '<img id="grid__img" class="grid__img" src="img/numbers/3.png">',
+    '<img id="grid__img" class="grid__img" src="img/numbers/4.png">',
+    '<img id="grid__img" class="grid__img" src="img/numbers/5.png">',
+    '<img id="grid__img" class="grid__img" src="img/numbers/6.png">',
+    '<img id="grid__img" class="grid__img" src="img/numbers/7.png">',
 ];
 
+const fruitArray = [
+    '<img id="grid__img" class="grid__img" src="img/fruit/1.png">',
+    '<img id="grid__img" class="grid__img" src="img/fruit/2.png">',
+    '<img id="grid__img" class="grid__img" src="img/fruit/3.png">',
+    '<img id="grid__img" class="grid__img" src="img/fruit/4.png">',
+    '<img id="grid__img" class="grid__img" src="img/fruit/5.png">',
+    '<img id="grid__img" class="grid__img" src="img/fruit/6.png">',
+    '<img id="grid__img" class="grid__img" src="img/fruit/7.png">',
+];
+
+const customArray = [
+    '<img id="grid__img" class="grid__img" src="img/custom/1.png">',
+    '<img id="grid__img" class="grid__img" src="img/custom/2.png">',
+    '<img id="grid__img" class="grid__img" src="img/custom/3.png">',
+    '<img id="grid__img" class="grid__img" src="img/custom/4.png">',
+    '<img id="grid__img" class="grid__img" src="img/custom/5.png">',
+    '<img id="grid__img" class="grid__img" src="img/custom/6.png">',
+    '<img id="grid__img" class="grid__img" src="img/custom/7.png">',
+    '<img id="grid__img" class="grid__img" src="img/custom/8.png">',
+    '<img id="grid__img" class="grid__img" src="img/custom/9.png">',
+    '<img id="grid__img" class="grid__img" src="img/custom/10.png">',
+];
+let imgArray = fruitArray;
 
 /*          Modal window on start that lets the user choose the size and topic                */
 const modal = document.querySelector("#modal-start");
+const topicNumbers = document.querySelector("#topic--numbers");
+const topicFruit = document.querySelector("#topic--fruit");
+const topicCustom = document.querySelector("#topic--custom");
 
 window.onload = openStart;
 
 function openStart() {
     openedItems = 0;
     grid.style.display = "none";
+
     const modalStart = document.querySelector(".modal-start");
     modalStart.style.display = "block";
+
     const sizeSmall = document.querySelector("#size--small");
     const sizeMedium = document.querySelector("#size--medium");
     const sizeLarge = document.querySelector("#size--large");
 
     const startBtn = document.querySelector("#start-btn");
 
-    const closeBtn = document.querySelector("#modal-start__close-btn").addEventListener("click", () => {
-        modalStart.style.display = "none";
-    });
-    
-    
     startBtn.addEventListener("click", () => {
-        if(sizeSmall.checked) {
+        if (sizeSmall.checked) {
             columns = 3;
             rows = 2;
             grid.style.gridTemplateColumns = "1fr 1fr 1fr";
         }
-        if(sizeMedium.checked) {
+        if (sizeMedium.checked) {
             columns = 4;
             rows = 2;
             grid.style.gridTemplateColumns = "1fr 1fr 1fr 1fr";
-        } if(sizeLarge.checked) {
+        }
+        if (sizeLarge.checked) {
             columns = 4;
             rows = 3;
             grid.style.gridTemplateColumns = "1fr 1fr 1fr 1fr";
         }
+
         modalStart.style.display = "none";
         startGame();
+    });
+
+    const closeBtn = document.querySelector("#modal-start__close-btn").addEventListener("click", () => {
+        modalStart.style.display = "none";
     });
 }
 
@@ -68,27 +94,31 @@ function getRandom() {
     // Array to push links to random pictures
     let randomArr = [];
     let items = columns * rows;
+    if (topicNumbers.checked) {
+        imgArray = numbersArray;
+    }
+    if (topicFruit.checked) {
+        imgArray = fruitArray;
+    }
+    if (topicCustom.checked) {
+        imgArray = customArray;
+    }
     // Generate random numbers to use in imgArray
     while (randomArr.length < items / 2) {
-        let random = Math.floor((Math.random() * imgArray.length) + 1);
+        let random = Math.floor(Math.random() * imgArray.length);
         // If a number is unique, push it into the array
-        if (randomArr.indexOf(random) === -1) {
-            randomArr.push(random);
+        if (randomArr.indexOf(imgArray[random]) === -1) {
+            randomArr.push(imgArray[random]);
         }
     }
     return [...randomArr, ...randomArr];
 }
 
-
 // Create a grid with random images in random order when the page loads
-
-
-
-// window.onload = startGame;
-
 function startGame() {
     grid.style.display = "grid";
     grid.innerHTML = "";
+
     newArr = getRandom();
     // Create grid items vertically (Create every column)
     for (let i = 0; i < columns; i++) {
@@ -101,7 +131,8 @@ function startGame() {
 
             // Get a random number from the array and put it in the name of the image, then remove it from the array
             let randomItem = newArr.splice(Math.floor(Math.random() * newArr.length), 1);
-            item.innerHTML = `<img class="grid__img" src="img/${randomItem}.png">`;
+            // Depending of what topic is chosen, open a certain folder
+            item.innerHTML = randomItem;
             // Append horizonal grid items to verical
             column.append(item);
         }
@@ -109,8 +140,6 @@ function startGame() {
         grid.append(column);
     }
 }
-
-
 
 /*                                Game flow                                     */
 grid.addEventListener("click", showImgs);
@@ -123,7 +152,6 @@ let targets = [];
 
 // Function to let the user open two tiles
 function showImgs(e) {
-    
     // When two items are clicked to the following
     if (clickedImgs.length < 2) {
         // Check if the user is really trying to open a tile, and not click on an opened one
@@ -138,7 +166,6 @@ function showImgs(e) {
         setTimeout(checkImgs, 400);
     }
 }
-
 
 // Function to check if the images match
 function checkImgs() {
@@ -160,13 +187,11 @@ function checkImgs() {
     clickedImgs = [];
 }
 
-
 // Function to congratulate the user when all items have been opened
 function userWins() {
     modal.style.display = "block";
     grid.style.display = "none";
 }
-
 
 document.querySelector("#modal__again-btn").addEventListener("click", () => {
     modal.style.display = "none";

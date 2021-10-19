@@ -6,10 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Find the Pair Game</title>
         <link rel="stylesheet" href="./style/style.css" />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;500;800&display=swap"
-            rel="stylesheet"
-        />
+        <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;500;800&display=swap" rel="stylesheet" />
         <script defer src="./script.js"></script>
     </head>
     <body>
@@ -33,33 +30,14 @@
             <!-- Modal appearing when a game is finished -->
             <div class="modal-finish" id="modal-start">
                 <div class="modal-finish__inner">
-                    <button
-                        class="modal-finish__close-btn"
-                        id="modal__close-btn"
-                    >
-                        &times
-                    </button>
+                    <button class="modal-finish__close-btn" id="modal__close-btn">&times</button>
                     <div class="modal-finish__top">
-                        <img
-                            class="modal-finish__img"
-                            src="./img/congratulations__icon.png"
-                            alt="congratulations"
-                        />
+                        <img class="modal-finish__img" src="./img/congratulations__icon.png" alt="congratulations" />
                         <h2 class="modal-finish__title">You win!</h2>
                     </div>
                     <div class="modal-finish__bottom">
-                        <button
-                            class="modal-finish__again-btn modal-finish__btn"
-                            id="modal__again-btn"
-                        >
-                            Play again
-                        </button>
-                        <button
-                            class="modal-finish__choose-btn modal-finish__btn"
-                            id="modal__close-btn"
-                        >
-                            Change topic
-                        </button>
+                        <button class="modal-finish__again-btn modal-finish__btn" id="modal__again-btn">Play again</button>
+                        <button class="modal-finish__choose-btn modal-finish__btn" id="modal__close-btn">Change topic</button>
                     </div>
                 </div>
             </div>
@@ -68,88 +46,39 @@
 
             <div class="modal-start" id="modal-start">
                 <div class="modal-start__inner">
-                    <button
-                        class="modal-start__close-btn"
-                        id="modal-start__close-btn"
-                    >
-                        &times
-                    </button>
+                    <button class="modal-start__close-btn" id="modal-start__close-btn">&times</button>
 
                     <div class="modal-start__top">
-                        <input
-                            type="radio"
-                            name="size-select"
-                            id="size--small"
-                        />
-                        <input type="radio" name="size-select" id="size--medium"
-                        / checked>
-                        <input
-                            type="radio"
-                            name="size-select"
-                            id="size--large"
-                        />
+                        <input type="radio" name="size-select" id="size--small" />
+                        <input type="radio" name="size-select" id="size--medium" / checked>
+                        <input type="radio" name="size-select" id="size--large" />
                         <label for="size--small" class="choice size--small">
                             <span>Small</span>
-                            <img
-                                class="choice-img"
-                                src="./img/size-small.svg"
-                                alt=""
-                            />
+                            <img class="choice-img" src="./img/size-small.svg" alt="" />
                         </label>
                         <label for="size--medium" class="choice size--medium">
                             <span>Medium</span>
-                            <img
-                                class="choice-img"
-                                src="./img/size-medium.svg"
-                                alt=""
-                            />
+                            <img class="choice-img" src="./img/size-medium.svg" alt="" />
                         </label>
                         <label for="size--large" class="choice size--large">
                             <span>Large</span>
-                            <img
-                                class="choice-img"
-                                src="./img/size-large.svg"
-                                alt=""
-                            />
+                            <img class="choice-img" src="./img/size-large.svg" alt="" />
                         </label>
                     </div>
 
                     <div class="modal-start__middle">
-                        <input
-                            type="radio"
-                            name="topic-select"
-                            id="topic--numbers"
-                        />
-                        <input type="radio" name="topic-select" id="topic--jobs"
-                        / checked>
-                        <input
-                            type="radio"
-                            name="topic-select"
-                            id="topic--animals"
-                        />
-                        <label for="topic--numbers" class="choice size--small">
-                            <span>Small</span>
-                            <img
-                                class="choice-img"
-                                src="./img/size-small.svg"
-                                alt=""
-                            />
+                        <input type="radio" name="topic-select" id="topic--numbers" />
+                        <input type="radio" name="topic-select" id="topic--fruit" / checked> <input type="radio" name="topic-select" id="topic--custom" / checked>
+                        <label for="topic--numbers" class="choice topic--numbers">
+                            <span>Numbers</span>
+                            <img class="choice-img" src="./img/topic-numbers.png" alt="" />
                         </label>
-                        <label for="size--medium" class="choice size--medium">
-                            <span>Medium</span>
-                            <img
-                                class="choice-img"
-                                src="./img/size-medium.svg"
-                                alt=""
-                            />
+                        <label for="topic--fruit" class="choice topic--fruit">
+                            <span>Fruit</span>
+                            <img class="choice-img" src="./img/topic-fruit.png" alt="" />
                         </label>
-                        <label for="size--large" class="choice size--large">
-                            <span>Large</span>
-                            <img
-                                class="choice-img"
-                                src="./img/size-large.svg"
-                                alt=""
-                            />
+                        <label for="topic--custom" class="choice topic--custom">
+                            <span>Custom</span>
                         </label>
                     </div>
 

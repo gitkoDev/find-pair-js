@@ -151,7 +151,6 @@ img {
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-        background: darken(colors.$clr-choose-btn, 30%);
         box-shadow: 1px 1px 35px 1px #bbb;
         border-radius: 6px;
         padding: 2rem;
@@ -161,8 +160,12 @@ img {
         color: #333;
         font-weight: 600;
     }
+    &__top {
+        background: darken(colors.$clr-choose-btn, 30%);
+    }
     &__middle {
         margin-bottom: 1rem;
+        background: darken(colors.$clr-again-btn, 20%);
     }
     .start-btn {
         display: flex;
@@ -190,20 +193,39 @@ img {
     padding: 0.5rem 1rem;
     cursor: pointer;
     width: 30%;
-    background-color: darken(colors.$clr-choose-btn, 20%);
+
     transition: 0.3s transform ease-in-out;
 
     & img {
         display: inline-block;
-        width: 2rem;
+        width: 3.5rem;
         margin-left: 1rem;
     }
+}
+
+.size--small,
+.size--medium,
+.size--large {
+    background-color: darken(colors.$clr-choose-btn, 20%);
 }
 
 #size--small:checked ~ .size--small,
 #size--medium:checked ~ .size--medium,
 #size--large:checked ~ .size--large {
     background-color: colors.$clr-choose-btn;
+    transform: scale(1.1);
+}
+
+.topic--fruit,
+.topic--numbers,
+.topic--custom {
+    background-color: colors.$clr-again-btn;
+}
+
+#topic--numbers:checked ~ .topic--numbers,
+#topic--fruit:checked ~ .topic--fruit,
+#topic--custom:checked ~ .topic--custom {
+    background: lighten(colors.$clr-again-btn, 10%);
     transform: scale(1.1);
 }
 
@@ -233,6 +255,7 @@ input[type="radio"] {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 2rem;
     }
     &__close-btn {
         @include mixins.close-btn;
@@ -292,7 +315,6 @@ input[type="radio"] {
     }
     .modal-start {
         width: 700px;
-        height: 50%;
     }
 }
 
